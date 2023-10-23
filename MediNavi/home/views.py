@@ -15,5 +15,8 @@ def landingPage(request):
 def post_symtoms(request:HttpResponse):
     a=request.POST['Symptoms']
     # return HttpResponse(a)
+    f=open("symptoms.txt",'a')
+    f.write(a)
+    f.close()
     template=loader.get_template("index.html")
     return    HttpResponse(template.render())
