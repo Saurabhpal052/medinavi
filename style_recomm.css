@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body {
+  background-image: url('background_2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: url(./background_2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}    
+
+.logo{
+    height: 4rem;
+    width: 4rem;
+}
+
+img{
+    border-radius: 3em;
+}
+.navbar
+{
+    width :85%;
+    margin:auto;
+   padding:35px 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin :0 20px;
+    position: relative;
+
+}
+.navbar ul li a{
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      
+}
+.navbar ul li a :hover{
+    color: #0d0d0d;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #0d0d0d;
+     position: absolute;
+     left:0;
+     bottom:-5px;
+     transition: 0.5s;
+}
+
+
+     .navbar ul li:hover::after{
+        width:100%;
+     }
+     h1{
+        text-align: center;
+        font-size: 50px;
+     }
+.s{
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    animation-name: initial;
+  animation-duration: 4s;
+    
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* vh stands for viewport height */
+  margin: auto;
+  width: 50%;
+
+
+  
+}
+
+
+.form-inline {
+ 
+  width:100%;
+    position: absolute;
+    top:54%;
+    transform: translateY(-50%);
+    text-align: center;
+    color:#fff;
+
+    
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 8px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 2px solid #ddd;
+  color: white;
+  border-radius: 30px;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+form {
+  width: 100%; /* adjust this value to control the form's width */
+}
