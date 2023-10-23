@@ -1,3 +1,3 @@
-mkdir home/templates
-mkdir about/templates
-mkdir login/templates
+touch home/urls.py
+touch about/urls.py
+touch login/urls.py
