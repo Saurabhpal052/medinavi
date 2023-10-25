@@ -15,13 +15,13 @@ from collections import Counter
 # Data loading and preprocessing (These parts can be included in a function)
 data = pd.read_csv("C:/Users/Adhiraj/Downloads/Original_Dataset.csv")
 des_data = pd.read_csv("C:/Users/Adhiraj/Downloads/Disease_Description.csv")
-doc = pd.read_csv("C:/Users/Adhiraj/Downloads/zocdoc.csv")
+ddoc = pd.read_csv("C:/Users/Adhiraj/Downloads/Doc_specialisation.csv")
 doc.drop(['Unnamed: 0'], axis=1, inplace=True)
 
 data1 = pd.read_csv("C:/Users/Adhiraj/Downloads/data1.csv")
 data1.columns = data1.columns.str.strip()
 
-with open('disease.pkl', 'rb') as model_file:
+with open('disease_predict.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
 # Data preprocessing (Label encoding and keyword processing)
@@ -56,6 +56,7 @@ symptoms = []
 predicted = []
 # Function for disease prediction
 def predict_disease(user_input):
+    #user_input = input("Enter the symptoms:")
     symptoms.clear()
     predicted.clear()
     matched_keyword = keyword_processor.extract_keywords(user_input)
@@ -69,11 +70,13 @@ def predict_disease(user_input):
     for column in test_col:
         test_data[column] = 1 if column in symptoms else 0
         test_df = pd.DataFrame(test_data, index=[0])
-    predict_disease = model.predict(test_df)
-    predict_disease = le.inverse_transform(predict_disease)
-    predicted.extend(predict_disease)
+    print("Predicting Disease based on 6 ML algorithms...")
+    for values in model:
+        predict_disease = values.predict(test_df)
+        predict_disease = le.inverse_transform(predict_disease)
+        predicted.extend(predict_disease)
     disease_counts = Counter(predicted)
-    percentage_per_disease = {disease: (count) for disease, count in disease_counts.items()}
+    percentage_per_disease = {disease: (count / 6) * 100 for disease, count in disease_counts.items()}
     result_df = pd.DataFrame({"Disease": list(percentage_per_disease.keys()),
                              "Chances": list(percentage_per_disease.values())})
     result_df = result_df.merge(doc_data, on='Disease', how='left')
@@ -81,7 +84,6 @@ def predict_disease(user_input):
     result_df = result_df.merge(merged_df, on='Specialist', how='left')
     result_df = result_df.drop_duplicates()
     result_df = result_df.drop('Description', axis=1)
-    result_df = result_df.drop('Chances', axis=1)
     return result_df
 
 # Flask app initialization

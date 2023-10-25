@@ -17,3 +17,7 @@ def post_symtoms(request:HttpResponse):
     # return HttpResponse(a)
     template=loader.get_template("index.html")
     return    HttpResponse(template.render())
+
+def doctor_recom(request):
+    tm=loader.get_template('doctor_recom.html')
+    return HttpResponse(tm.render())
