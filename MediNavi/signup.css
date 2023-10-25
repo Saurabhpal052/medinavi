@@ -7,7 +7,7 @@
 div.main{
     width: 100%;
     height: 100vh;
-    background-image: url(./background_2.jpg);
+    background-image: url(./medinavi_bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -28,7 +28,7 @@ form#register{
     border-radius: 10px;
     margin-left: 38%;
     margin-top: 2%;
-    
+    backdrop-filter: blur(11px);
 }
 label{
     font-family: 'Times New Roman', Times, serif;
