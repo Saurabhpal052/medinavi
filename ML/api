@@ -57,18 +57,22 @@ predicted = []
 # Function for disease prediction
 def predict_disease(user_input):
     #user_input = input("Enter the symptoms:")
-    symptoms.clear()
-    predicted.clear()
+    # symptoms.clear()
+    # predicted.clear()
     matched_keyword = keyword_processor.extract_keywords(user_input)
+    print('\n\n\n\n\n')
     if len(matched_keyword) == 0:
         print("No Matches")
     else:
         regex = re.compile(' ')
         processed_keywords = [i if regex.search(i) is None else i.replace(' ', '_') for i in matched_keyword]
         print("Symptoms you have:", processed_keywords)
+    print('\n\n\n\n\n')
+
+
 
     for column in test_col:
-        test_data[column] = 1 if column in symptoms else 0
+        test_data[column] = 1 if column in processed_keywords else 0
         test_df = pd.DataFrame(test_data, index=[0])
     print("Predicting Disease based on 6 ML algorithms...")
     for values in model:
@@ -101,6 +105,7 @@ class Predict(Resource):
         args = parser.parse_args()
 
         user_input = args['query']
+
         result_df = predict_disease(user_input)
 
         # Create a response JSON
