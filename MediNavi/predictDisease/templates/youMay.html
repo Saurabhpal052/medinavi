@@ -1,13 +1,17 @@
 {% for form in disease_forms %}
-        <div class="disease-form">
+        <div class="disease-form" onclick="toggleElement('{{form.disease.value}}')">
             {{ form.disease.label_tag }}: {{ form.disease.value }}<br>
             {{ form.chances.label_tag }}: {{ form.chances.value }}
-            {% for doctor_form in form.doctors %}
+            
+            <div id='{{form.disease.value}}' style="display: none;">
+                {% for doctor_form in form.doctors %}
                 <div class="doctor-form">
                     {{ doctor_form.name.label_tag }}: {{ doctor_form.name.value }}
                     {{ doctor_form.specialist.label_tag }}: {{ doctor_form.specialist.value }}
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+
         </div>
 {% endfor %}
 <style>
@@ -26,3 +30,15 @@
         background-color: #f0f0f0;
     }
 </style>
+<script>
+    function toggleElement(elementid) {
+    var element = document.getElementById(elementid);
+    
+    if (element.style.display === "none") {
+        element.style.display = "block";  // Show the element
+    } else {
+        element.style.display = "none";   // Hide the element
+    }
+}
+
+</script>
