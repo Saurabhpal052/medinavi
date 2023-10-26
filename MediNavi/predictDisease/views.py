@@ -31,9 +31,9 @@ def yourMayHave(request:HttpResponse):
 }   
     process()
     # restructured_json = json.dumps(restructured_data, indent=2)
-    
+    disease_data=restructured_data["disease_recommendations"]
     disease_forms = []
-    for data in restructured_data:
+    for data in disease_data:
         disease_form = DiseaseInfoForm(doctors_data=data["doctors"], initial=data)
         disease_forms.append(disease_form)
 
