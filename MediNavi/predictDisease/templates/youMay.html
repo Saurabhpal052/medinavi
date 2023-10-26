@@ -1,13 +1,21 @@
 {% for form in disease_forms %}
         <div class="disease-form" onclick="toggleElement('{{form.disease.value}}')">
-            {{ form.disease.label_tag }}: {{ form.disease.value }}<br>
-            {{ form.chances.label_tag }}: {{ form.chances.value }}
-            
+            <div id="dis_lb">
+                {{ form.disease.label_tag }}: {{ form.disease.value }}
+            </div>
+            <div id="dis_ch">
+                {{ form.chances.label_tag }}: {{ form.chances.value }}
+            </div>
+            <br>
             <div id='{{form.disease.value}}' style="display: none;">
                 {% for doctor_form in form.doctors %}
                 <div class="doctor-form">
-                    {{ doctor_form.name.label_tag }}: {{ doctor_form.name.value }}
-                    {{ doctor_form.specialist.label_tag }}: {{ doctor_form.specialist.value }}
+                    <div id="doc_name">
+                        {{ doctor_form.name.label_tag }}: {{ doctor_form.name.value }}
+                    </div>
+                    <div id="doc_spec">
+                        {{ doctor_form.specialist.label_tag }}: {{ doctor_form.specialist.value }}
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -21,10 +29,18 @@
         border: 1px solid #ccc;
         background-color: #f9f9f9;
     }
-
-    .doctor-form {
-        margin: 5px;
+    #dis_lb , #dis_ch{
+        display: inline-block;
+        width: 30%;
+    }
+    #doc_name , #doc_spec {
+        display: inline-block;
+        width: 30%;
         margin-left: 10%;
+    }
+    .doctor-form{
+        /* margin-left: 10%; */
+        margin: 5px;
         padding: 5px;
         border: 1px solid #ddd;
         background-color: #f0f0f0;
