@@ -1,23 +1,28 @@
-<form method="post">
-    <!-- {% csrf_token %} -->
-    {% for form in disease_forms %}
+{% for form in disease_forms %}
         <div class="disease-form">
-            {{ form.disease.label_tag }}: {{ form.disease }}
-            {{ form.chances.label_tag }}: {{ form.chances }}
-            {{ form.doctors.management_form }}
+            {{ form.disease.label_tag }}: {{ form.disease.value }}<br>
+            {{ form.chances.label_tag }}: {{ form.chances.value }}
             {% for doctor_form in form.doctors %}
                 <div class="doctor-form">
-                    {{ doctor_form.name.label_tag }}: {{ doctor_form.name }}
-                    {{ doctor_form.specialist.label_tag }}: {{ doctor_form.specialist }}
+                    {{ doctor_form.name.label_tag }}: {{ doctor_form.name.value }}
+                    {{ doctor_form.specialist.label_tag }}: {{ doctor_form.specialist.value }}
                 </div>
             {% endfor %}
         </div>
-    {% endfor %}
-    <input type="submit" value="Submit">
-</form>
-This example assumes you have a Django template named my_template.html. Modify it to suit your project's structure and styling needs.
+{% endfor %}
+<style>
+        .disease-form {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
 
-
-
-
-
+    .doctor-form {
+        margin: 5px;
+        margin-left: 10%;
+        padding: 5px;
+        border: 1px solid #ddd;
+        background-color: #f0f0f0;
+    }
+</style>
