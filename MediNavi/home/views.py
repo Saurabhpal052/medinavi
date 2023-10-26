@@ -11,7 +11,7 @@ def landingPage(request):
     # print(request)
     return HttpResponse(template.render())
 
-@csrf_protect
+@csrf_exempt
 def post_symtoms(request:HttpResponse):
     a=request.POST['Symptoms']
     # return HttpResponse(a)
