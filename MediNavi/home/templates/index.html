@@ -27,7 +27,7 @@
             
             
             <!-- my_template.html -->
-            <form method="post" action="{% url 'post_symtoms' %}">
+            <form method="post" action="{% url 'yourMayHave' %}">
                 {% csrf_token %}
                 <!-- {{ form.as_p }} -->
                     <input type="text" placeholder="Enter your Symptoms" name="Symptoms" class="Find" style="height: 3em; border-radius: 2em; width: 30em;" value="{{ Symptoms }}">

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'home',
     'about',
     'login',
-    'signup'
+    'signup',
+    'predictDisease'
 ]
 
 MIDDLEWARE = [
