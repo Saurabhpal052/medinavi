@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.http import HttpResponse
 import json
 
+from .form import DiseaseInfoForm 
+
 
 restructured_data={}
 response_data={}
@@ -28,8 +30,16 @@ def yourMayHave(request:HttpResponse):
 "disease_recommendations": []
 }   
     process()
-    restructured_json = json.dumps(restructured_data, indent=2)
-    return JsonResponse(restructured_data)
+    # restructured_json = json.dumps(restructured_data, indent=2)
+    
+    disease_forms = []
+    for data in restructured_data:
+        disease_form = DiseaseInfoForm(doctors_data=data["doctors"], initial=data)
+        disease_forms.append(disease_form)
+
+    # Render the template with the forms
+    return render(request, 'youMay.html', {'disease_forms': disease_forms})
+    # return JsonResponse(restructured_data)
 
 def process():
 
