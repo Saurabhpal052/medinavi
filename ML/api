@@ -13,12 +13,12 @@ from sklearn import metrics
 from collections import Counter
 
 # Data loading and preprocessing (These parts can be included in a function)
-data = pd.read_csv("C:/Users/Adhiraj/Downloads/Original_Dataset.csv")
-des_data = pd.read_csv("C:/Users/Adhiraj/Downloads/Disease_Description.csv")
-ddoc = pd.read_csv("C:/Users/Adhiraj/Downloads/Doc_specialisation.csv")
+data = pd.read_csv("Original_Dataset.csv")
+des_data = pd.read_csv("Disease_Description.csv")
+doc = pd.read_csv("Doc_specialisation.csv")
 doc.drop(['Unnamed: 0'], axis=1, inplace=True)
 
-data1 = pd.read_csv("C:/Users/Adhiraj/Downloads/data1.csv")
+data1 = pd.read_csv("data1.csv")
 data1.columns = data1.columns.str.strip()
 
 with open('disease_predict.pkl', 'rb') as model_file:
@@ -28,7 +28,7 @@ with open('disease_predict.pkl', 'rb') as model_file:
 parser = reqparse.RequestParser()
 parser.add_argument('query')
 
-doc_data = pd.read_csv("C:/Users/Adhiraj/Downloads/Doctor_Versus_Disease.csv", encoding='latin1',
+doc_data = pd.read_csv("Doctor_Versus_Disease.csv", encoding='latin1',
                      names=['Disease', 'Specialist'])
 doc_data['Specialist'] = np.where((doc_data['Disease'] == 'Tuberculosis'), 'Pulmonologist', doc_data['Specialist'])
 doc = doc.rename(columns={'speciality': 'Specialist'})
