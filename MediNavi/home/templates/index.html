@@ -17,7 +17,7 @@
             <img  class="logo" src="{% static 'logo.jpg' %}"  alt="Medinevi">
             <ul>
                 <li><a href="#"> appointment booking</a></li>
-                <li><a href="#"> doctor recomdation</li><li><a href="/about">about</a></li>
+                <li><a href="/doctor_recom"> doctor recomdation</li><li><a href="/about">about</a></li>
                 <li><a href="/login">log in</a></li>
                 
             </ul>
@@ -30,7 +30,7 @@
             <form method="post" action="{% url 'post_symtoms' %}">
                 {% csrf_token %}
                 <!-- {{ form.as_p }} -->
-                    <input type="text" placeholder="Enter your the Symptoms" name="Symptoms" class="Find" style="height: 3em; border-radius: 2em; width: 30em;" value="{{ Symptoms }}">
+                    <input type="text" placeholder="Enter your Symptoms" name="Symptoms" class="Find" style="height: 3em; border-radius: 2em; width: 30em;" value="{{ Symptoms }}">
                     <!-- <button type="submit">Submit</button> -->
                 </form>
 
