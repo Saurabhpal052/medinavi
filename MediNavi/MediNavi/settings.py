@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-gd&*m^7=(a!-y7x&_)!awz2&5@y5+7-)25xvv(p((9(b^l-3&v
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok-free.app']
 
 # Application definition
 
@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_rename_app',
     'home',
     'about',
     'login',
-
+    'signup'
 ]
 
 MIDDLEWARE = [
@@ -105,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SESSION_COOKIE_SECURE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
