@@ -1,1 +1,1 @@
-Medinavi- An online medical assistance project
+Medinavi- is a user-focused healthcare solution that combines cutting-edge technology with human expertise. It offers personalized health guidance, symptom-driven diagnosis, doctor recommendations, and appointment booking, all in one place.
