@@ -1,7 +1,48 @@
+<!-- chatbot.html -->
+<body>
+    <div id="chat-container">
+        <div id="chat-log" style="max-height: 80%;overflow: scroll;"></div>
+        <div style="top:100%;position: absolute;transform: translateY(-100%);">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
 
-{%load static%}
-<link rel="stylesheet" href="{% static 'chatbot.css' %}">
-<div class="chatbox_btn"  ><img class="imgbot" src="{% static 'chatbot.jpeg' %}" style="border-radius: 3em;"></div>
-<div class="chatbot">
-    <div class="help">Hello! I'm your friendly healthcare companion, HealthBot. 👋 I can help you to knowing technical term.</div>
-</div>
+</body>
+<style>
+#chat-container{
+    background-color: azure;
+    border-radius: 12px;
+    height: 200px;width: 400px;
+}
+#char-container::-webkit-scrollbar {
+    scrollbar-width: none ;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#send-button").click(function () {
+            var userMessage = $("#user-input").val();
+            $("#chat-log").append("<p>You: " + userMessage + "</p>");
+            $("#user-input").val("");
+            sendMessage(userMessage);
+        });
+
+        function sendMessage(userMessage) {
+            // Make an API request to your chatbot API
+            // i am using AJAX, Fetch,  method to interact with our chatbot API
+            $.ajax({
+                url: "/chatbot/",
+                method: "POST",
+                data: {
+                    message: userMessage,
+                },
+                success: function (response) {
+                    var botMessage = response.message;
+                    $("#chat-log").append("<p>Bot: " + botMessage + "</p>");
+                },
+            });
+        }
+    });
+</script>

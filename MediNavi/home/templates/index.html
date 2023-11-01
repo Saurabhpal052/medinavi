@@ -44,12 +44,19 @@
               Welcome to<span style="color: red; font-size: 3rem;"> MediNavi</span> , Your Health is Our Priority  Explore, Diagnose, Connect!
         </marquee>
         </div>
-        <div class="bottom">
+        <div class="bottom" >
             <div class="desclaimer">
                 <p>*Disclaimer:The information provided on this website is for general informational purposes only. It is not a substitute for professional medical  advice, diagnosis, or treatment.<br> Always seek the advice of your physician or another qualified health provider with any questions you may have regarding a medical condition. </p>
             </div>
+        </div>
+        <script src="{%static 'showChat.js'%}"></script>
+        <div style="width: 100%;display: flex;position: fixed;top:70%;" onclick="toggleChatBox()">
+            {%include 'chatbotLogo.html'%}
+        </div>
+        <div id="chatbox" style="display: none;position: fixed;top:60%;left: 100%;left: 100%;transform: translate(-100%);">
             {%include 'chatbot.html'%}
         </div>
+            
     </div>
 </body>
 </html>
