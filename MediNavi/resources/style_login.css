@@ -23,14 +23,10 @@ body{
     
    position: relative;
 }
-.animation{
-    
-    margin-top: 4%;;
-    white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typeText 2s steps(20) forwards;
-    
+.move{
+    margin-top: 2em;
+    color: white;
+    font-size: 2em;
 }
 @keyframes typeText {
     to { width: 100%; }
@@ -47,7 +43,7 @@ body{
     margin-top: 4em;
     margin-left: 38%;
     width:420px;
-    background:blueviolet;
+    background:rgb(255, 255,255,0.3);
     color: white;
      border-radius: 10px;
      padding: 30px 40px;
@@ -69,7 +65,7 @@ body{
     background: transparent;
     border:none;
     outline: none;
-    border:2px solid rgba(255,255.255,0.2);
+    border:2px solid white;
     border-radius: 40px;
     font-size: 16px;
     color: white;
@@ -128,7 +124,7 @@ body{
 
 }
 .register-link p a{
-    color: white;
+    color:white;
     text-decoration: none;
     font-weight: 600;
 }
