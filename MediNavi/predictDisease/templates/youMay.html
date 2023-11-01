@@ -1,11 +1,17 @@
-{% for form in disease_forms %}
-        <div class="disease-form" onclick="toggleElement('{{form.disease.value}}')">
-            <div id="dis_lb">
-                {{ form.disease.label_tag }}: {{ form.disease.value }}
-            </div>
-            <div id="dis_ch">
-                {{ form.chances.label_tag }}: {{ form.chances.value }}
-            </div>
+{%load static%}
+<body>
+    <div class="disease-form">
+        <div id="dis_lb">Diseases: </div>
+        <div id="dis_ch">chances:</div>
+    </div>
+    {% for form in disease_forms %}
+    <div class="disease-form" onclick="toggleElement('{{form.disease.value}}')">
+        <div id="dis_lb">
+            {{ form.disease.value }}
+        </div>
+        <div id="dis_ch">
+                {{ form.chances.value }}
+        </div>
             <br>
             <div id='{{form.disease.value}}' style="display: none;">
                 {% for doctor_form in form.doctors %}
@@ -19,19 +25,33 @@
                 </div>
                 {% endfor %}
             </div>
-
+            
         </div>
-{% endfor %}
+        {% endfor %}
+</body>
 <style>
-        .disease-form {
+    body{
+        background-image: url("{%static 'background_2.jpg'%}");
+        background-repeat: repeat-y;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        /* left: 50%; */
+    }
+    .disease-form {
+        border-radius: 10px;
         margin: 10px;
         padding: 10px;
         border: 1px solid #ccc;
         background-color: #f9f9f9;
+        margin-left: 50%;
+        transform: translate(-50%);
+        position: relative;
     }
     #dis_lb , #dis_ch{
         display: inline-block;
         width: 30%;
+        margin-left: 10%;
     }
     #doc_name , #doc_spec {
         display: inline-block;
