@@ -5,7 +5,9 @@
     font-family: 'Roboto',sans-serif;
 }
 body{
-    background-color: white;
+    background-image: url("./background_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .heading{
     width:90%;
@@ -19,7 +21,7 @@ body{
 
 .heading h1{
     font-size: 50px;
-    color:black;
+    color:whitesmoke;
     margin-bottom: 25px;
     position: relative;
 }
@@ -30,11 +32,11 @@ body{
     height: 4px;
     display: block;
     margin:0 auto;
-    background-color: black;
+    background-color: white;
 }
 .heading p{
-    font: size 18px;
-    color: #666;
+    font-size: 16px;
+    color:white;
     margin-bottom:35px;
 
 }
@@ -73,12 +75,12 @@ body{
 .about-content h2{
     font-size: 23px;
     margin-bottom: 15px;
-    color:#333;
+    color:white;
 }
 .about-content p{
     font-size:18px;
     line-height: 1.5;
-    color:#666;
+    color:white;
 }
 .about-content .read-more{
     display: inline-block;
@@ -93,4 +95,4 @@ body{
 }
 .about-content .read-more:hover{
     background-color:#3e8e41;
-}
+}   
