@@ -36,9 +36,15 @@
             <button type="submit">Submit</button>
           </form>
         </div>
-        <div class="bottom" style="width: 100%;display: flex;position: absolute;top:70%;">
+        
+        <script src="{%static 'showChat.js'%}"></script>
+        <div style="width: 100%;display: flex;position: fixed;top:70%;" onclick="toggleChatBox()">
             {%include 'chatbotLogo.html'%}
         </div>
+        <div id="chatbox" style="display: none;position: fixed;top:60%;left: 100%;left: 100%;transform: translate(-100%);">
+            {%include 'chatbot.html'%}
+        </div>
+
     </div>
 </body>
 </html>

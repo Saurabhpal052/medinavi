@@ -24,5 +24,6 @@ urlpatterns = [
     path('login/',include('login.urls')),
     path('about/',include('about.urls')),
     path('signup/',include('signup.urls')),
+    path('chatbot/',include('chatbot.urls')),
     path('admin/', admin.site.urls),
 ]
