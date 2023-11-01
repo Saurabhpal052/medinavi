@@ -1,7 +1,7 @@
 <!-- chatbot.html -->
 <body>
     <div id="chat-container">
-        <div id="chat-log" style="max-height: 100%;overflow: scroll;"></div>
+        <div id="chat-log" style="max-height: 80%;overflow: scroll;"></div>
         <div style="top:100%;position: absolute;transform: translateY(-100%);">
             <input type="text" id="user-input" placeholder="Type your message...">
             <button id="send-button">Send</button>
@@ -33,7 +33,7 @@
             // Make an API request to your chatbot API
             // i am using AJAX, Fetch,  method to interact with our chatbot API
             $.ajax({
-                url: "chatbot/",
+                url: "/chatbot/",
                 method: "POST",
                 data: {
                     message: userMessage,
