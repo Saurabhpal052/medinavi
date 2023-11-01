@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'about',
     'login',
     'signup',
-    'predictDisease'
+    'predictDisease',
+    'chatbot'
 ]
 
 MIDDLEWARE = [

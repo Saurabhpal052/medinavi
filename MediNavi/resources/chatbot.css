@@ -1,0 +1,30 @@
+
+.chatbox_btn{
+    position: absolute;
+    height: 4em;
+    padding-top: 6%;
+    margin-left: 90%;
+    cursor: pointer;
+}
+.imgbot{
+    width: 80px;
+height: 80px;
+}
+
+.chatbot
+{
+    display: none;
+    position: absolute;
+    width:200px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    /* height: 4em; */
+    /* padding-top: 6%; */
+    margin-left: 80%;
+    margin-top: -30px;
+}
+
+.chatbox_btn:hover + .chatbot{
+    display: block;
+}

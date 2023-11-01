@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Recommendation</title>
-    <link rel="stylesheet" href="{% static "style_recomm.css" %}">
+    <link rel="stylesheet" href="{% static 'style_recomm.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -36,7 +36,9 @@
             <button type="submit">Submit</button>
           </form>
         </div>
-
+        <div class="bottom" style="width: 100%;display: flex;position: absolute;top:70%;">
+            {%include 'chatbot.html'%}
+        </div>
     </div>
 </body>
 </html>
